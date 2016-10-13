@@ -1,0 +1,38 @@
+Who are you?            {pos:/WP/}=A >> nsubj {}=B
+Who is Isaac Newton?    {pos:/WP/}=A >> nsubj {}=B
+When did he die?
+When was he born?
+Where was WWI happened?
+When did it start?
+When did it end?
+How long did it started?
+Why did it started?
+Where is Bangladesh ?   {pos:/N.*/} = A < nsubj ( {pos:/N.*/}=B >case {pos:IN})  {pos:/[PN].*/} = A < nsubj ( {pos:/N.*/}=B >case {pos:IN})
+                        {pos:/N.*/} = A <nsubj ( {lemma:located;pos:JJ}=B > ( {pos:/N.*/}=C > case {pos:IN}=D) )
+
+
+
+
+for e in output["sentences"]:
+    time = []
+    for k in e.keys():
+        d = e[k]
+        if type(d) is dict:
+            print k , d[u'$C'][u'text']
+            time.append(d[u'$C'][u'text'])
+    if time:
+        dateTimeList.append(' '.join(time))
+
+print dateTimeList
+print time
+
+0 morning
+1 19th
+0 February
+3 1977
+2 ,
+[u'morning', u'19th February 1977 ,']
+[u'19th', u'February', u'1977', u',']
+[[u'length'], [u'length'], [u'0', u'length'], [u'1', u'0', u'3', u'2', u'length']]
+
+
